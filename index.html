@@ -6,13 +6,21 @@
 </head>
 <body>
   <div id="attr-plot" style="width:500px;height:500px;"></div>
+  <div id="skills-plot" style="width:500px;height:500px;"></div>
 </body>
 <script>
 const urlParams = new URLSearchParams(window.location.search);
-data = [{
+attr_data = [{
   type: 'scatterpolar',
   r: [urlParams.get('str'), urlParams.get('dex'), urlParams.get('con'), urlParams.get('int'), urlParams.get('wis'), urlParams.get('cha')],
   theta: ["STR", "DEX", "CON", "INT", "WIS", "CHA"],
+  fill: 'toself'
+}]
+
+skills_data = [{
+  type: 'scatterpolar',
+  r: [urlParams.get('athletics'),urlParams.get('acrobatics'),urlParams.get('sleight_of_hand'),urlParams.get('stealth'),urlParams.get('arcana'),urlParams.get('history'),urlParams.get('investigation'),urlParams.get('nature'),urlParams.get('religion'),urlParams.get('animal_handling'),urlParams.get('insight'),urlParams.get('medicine'),urlParams.get('perception'),urlParams.get('survival'),urlParams.get('deception'),urlParams.get('intimidation'),urlParams.get('performance'),urlParams.get('persuasion')],
+  theta: ["Athletics", "Acrobatics", "Sleight of Hand", "Stealth", "Arcana", "History", "Investigation", "Nature", "Religion", "Animal Handling", "Insight", "Medicine", "Perception", "Survival", "Deception", "Intimidation", "Performance", "Persuasion"],
   fill: 'toself'
 }]
 
@@ -26,6 +34,7 @@ layout = {
   showlegend: false
 }
 
-Plotly.newPlot("attr-plot", data, layout)
+Plotly.newPlot("attr-plot", attr_data, layout)
+Plotly.newPlot("skills-plot", skills_data, layout)
 </script>
 </html>
