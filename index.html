@@ -29,7 +29,13 @@ attr_layout = {
   showlegend: false
 }
 
-urlParams.delete("STR", "DEX", "CON", "INT", "WIS", "CHA", "STR")
+urlParams.delete("STR")
+urlParams.delete("DEX")
+urlParams.delete("CON")
+urlParams.delete("INT")
+urlParams.delete("WIS")
+urlParams.delete("CHA")
+
 skill_data = [{
   type: 'scatterpolar',
   r: [urlParams.get('athletics'),urlParams.get('acrobatics'),urlParams.get('sleight_of_hand'),urlParams.get('stealth'),urlParams.get('arcana'),urlParams.get('history'),urlParams.get('investigation'),urlParams.get('nature'),urlParams.get('religion'),urlParams.get('animal_handling'),urlParams.get('insight'),urlParams.get('medicine'),urlParams.get('perception'),urlParams.get('survival'),urlParams.get('deception'),urlParams.get('intimidation'),urlParams.get('performance'),urlParams.get('persuasion'),urlParams.get('athletics')],
