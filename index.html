@@ -10,13 +10,14 @@
 
 </body>
 <script>
+const urlParams = new URLSearchParams(window.location.search);
 var ctx = document.getElementById('attr_chart').getContext('2d');
 var marksData = {
   labels: ["STR", "DEX", "CON", "INT", "WIS", "CHA"],
   datasets: [{
     label: "Nome",
     backgroundColor: "rgba(200,0,0,0.2)",
-    data: [65, 75, 70, 80, 60, 80]
+    data: [urlParams.get('str'), urlParams.get('dex'), urlParams.get('con'), urlParams.get('int'), urlParams.get('wis'), urlParams.get('cha')]
   }]
 };
  
