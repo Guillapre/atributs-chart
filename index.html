@@ -9,7 +9,6 @@
 </body>
 <script>
 const urlParams = new URLSearchParams(window.location.search);
-var ctx = document.getElementById('attr_chart').getContext('2d');
 data = [{
   type: 'scatterpolar',
   r: [urlParams.get('str'), urlParams.get('dex'), urlParams.get('con'), urlParams.get('int'), urlParams.get('wis'), urlParams.get('cha')],
