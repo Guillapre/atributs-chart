@@ -5,8 +5,9 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
 </head>
 <body>
-
-<canvas id="attr_chart" width="400" height="400"></canvas>
+<div style="width:40%">
+    <canvas id="attr_chart" style="display: block; width: 400px; height: 400px;" width="400" height="400"></canvas>
+</div>
 
 </body>
 <script>
@@ -15,7 +16,7 @@ var ctx = document.getElementById('attr_chart').getContext('2d');
 var marksData = {
   labels: ["STR", "DEX", "CON", "INT", "WIS", "CHA"],
   datasets: [{
-    label: "Nome",
+    label: "Attributes",
     backgroundColor: "rgba(200,0,0,0.2)",
     data: [urlParams.get('str'), urlParams.get('dex'), urlParams.get('con'), urlParams.get('int'), urlParams.get('wis'), urlParams.get('cha')]
   }]
