@@ -10,6 +10,9 @@
 </body>
 <script>
 const urlParams = new URLSearchParams(window.location.search);
+
+Math.max(...urlParams.values())
+
 attr_data = [{
   type: 'scatterpolar',
   r: [urlParams.get('str'), urlParams.get('dex'), urlParams.get('con'), urlParams.get('int'), urlParams.get('wis'), urlParams.get('cha'),urlParams.get('str')],
@@ -20,7 +23,7 @@ attr_layout = {
   polar: {
     radialaxis: {
       visible: true,
-      range: [0, 20]
+      range: [0, ((Math.max(...urlParams.values()) < 20) ? 20 : Math.max(...urlParams.values()))]
     }
   },
   showlegend: false
@@ -36,7 +39,7 @@ skill_layout = {
   polar: {
     radialaxis: {
       visible: true,
-      range: [-10, 10]
+      range: [-5, ((Math.max(...urlParams.values()) < 10) ? 10 : Math.max(...urlParams.values()))]
     }
   },
   showlegend: false
