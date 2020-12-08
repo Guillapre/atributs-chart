@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>dnd-attr-chart</title>
+<title>d&d-5e-attr-chart</title>
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
@@ -44,7 +44,7 @@ hr {
 </head>
 <body>
   <div style="padding:5px;text-align:center;">
-    <h1>d&d attributes chart</h1>
+    <h1>d&d 5e attr chart</h1>
   </div>
   <div style="overflow:auto">
     <div class="main">
@@ -75,15 +75,17 @@ hr {
 </body>
 <script>
 const urlParams = new URLSearchParams(window.location.search);
+attr_vals = urlParams.get("attributes").split(" ")
+skills_vals = urlParams.get("skills").split(" ")
 attr_data = [{
   type: 'scatterpolar',
-  r: [urlParams.get('str'), urlParams.get('dex'), urlParams.get('con'), urlParams.get('int'), urlParams.get('wis'), urlParams.get('cha'),urlParams.get('str')],
+  r: attr_vals,
   theta: ["STR", "DEX", "CON", "INT", "WIS", "CHA", "STR"],
   fill: 'toself'
   }]
 skill_data = [{
     type: 'scatterpolar',
-    r: [urlParams.get('athletics'),urlParams.get('acrobatics'),urlParams.get('sleight_of_hand'),urlParams.get('stealth'),urlParams.get('arcana'),urlParams.get('history'),urlParams.get('investigation'),urlParams.get('nature'),urlParams.get('religion'),urlParams.get('animal_handling'),urlParams.get('insight'),urlParams.get('medicine'),urlParams.get('perception'),urlParams.get('survival'),urlParams.get('deception'),urlParams.get('intimidation'),urlParams.get('performance'),urlParams.get('persuasion'),urlParams.get('athletics')],
+    r: skills_vals,
   theta: ["Athletics", "Acrobatics", "Sleight of Hand", "Stealth", "Arcana", "History", "Investigation", "Nature", "Religion", "Animal Handling", "Insight", "Medicine", "Perception", "Survival", "Deception", "Intimidation", "Performance", "Persuasion","Athletics"],
   fill: 'toself'
 }]
@@ -94,7 +96,18 @@ attr_layout = {
       tickvals: ["0","2","4","6","8","10","12","14","16","18","20","22","24","26","28","30"],
       ticktext: ["-5","-4","-3","-2","-1","0","+1","+2","+3","+4","+5","+6","+7","+8","+9","+10"],
       visible: true,
-      range: [-1, ((Math.max(...urlParams.values()) < 20) ? 20 : Math.max(...urlParams.values()))]
+      range: [-1, ((Math.max(...attr_vals) < 20) ? 20 : Math.max(...attr_vals))]
+    }
+  },
+  showlegend: false,
+  paper_bgcolor: 'rgba(0,0,0,0)',
+  plot_bgcolor: 'rgba(0,0,0,0)'
+}
+skill_layout = {
+  polar: {
+    radialaxis: {
+      visible: true,
+      range: [-6, ((Math.max(...skills_vals) < 10) ? 10 : Math.max(...skills_vals))]
     }
   },
   showlegend: false,
@@ -215,24 +228,13 @@ function get_attr_range(value) {
     return 11
   }
 }
-document.getElementById("descr-str").innerHTML=attrs_desc['str'][get_attr_range(parseInt(urlParams.get('str')))];
-document.getElementById("descr-dex").innerHTML=attrs_desc['dex'][get_attr_range(parseInt(urlParams.get('dex')))];
-document.getElementById("descr-con").innerHTML=attrs_desc['con'][get_attr_range(parseInt(urlParams.get('con')))];
-document.getElementById("descr-int").innerHTML=attrs_desc['int'][get_attr_range(parseInt(urlParams.get('int')))];
-document.getElementById("descr-wis").innerHTML=attrs_desc['wis'][get_attr_range(parseInt(urlParams.get('wis')))];
-document.getElementById("descr-cha").innerHTML=attrs_desc['cha'][get_attr_range(parseInt(urlParams.get('cha')))];
-urlParams.delete("str");urlParams.delete("dex");urlParams.delete("con");urlParams.delete("int");urlParams.delete("wis");urlParams.delete("cha");
-skill_layout = {
-  polar: {
-    radialaxis: {
-      visible: true,
-      range: [-6, ((Math.max(...urlParams.values()) < 10) ? 10 : Math.max(...urlParams.values()))]
-    }
-  },
-  showlegend: false,
-  paper_bgcolor: 'rgba(0,0,0,0)',
-  plot_bgcolor: 'rgba(0,0,0,0)'
-}
+document.getElementById("descr-str").innerHTML=attrs_desc['str'][get_attr_range(parseInt(attr_vals[0]))];
+document.getElementById("descr-dex").innerHTML=attrs_desc['dex'][get_attr_range(parseInt(attr_vals[1]))];
+document.getElementById("descr-con").innerHTML=attrs_desc['con'][get_attr_range(parseInt(attr_vals[2]))];
+document.getElementById("descr-int").innerHTML=attrs_desc['int'][get_attr_range(parseInt(attr_vals[3]))];
+document.getElementById("descr-wis").innerHTML=attrs_desc['wis'][get_attr_range(parseInt(attr_vals[4]))];
+document.getElementById("descr-cha").innerHTML=attrs_desc['cha'][get_attr_range(parseInt(attr_vals[5]))];
+
 Plotly.newPlot("attr-plot", attr_data, attr_layout,{responsive: true})
 Plotly.newPlot("skill-plot", skill_data, skill_layout,{responsive: true})
 // huge thanks to u/theRapkin. see more info in https://www.reddit.com/r/dndnext/comments/81cras/dd_ability_score_ranges_described
