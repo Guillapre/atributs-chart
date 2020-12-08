@@ -35,9 +35,9 @@ attr_layout = {
     margin: {
         l: 50,
         r: 50,
-        b: 25,
-        t: 25,
-        pad: 5
+        b: 35,
+        t: 35,
+        pad: 8
     }
 }
 skill_layout = {
@@ -58,9 +58,9 @@ skill_layout = {
     margin: {
         l: 50,
         r: 50,
-        b: 30,
-        t: 30,
-        pad: 5
+        b: 35,
+        t: 35,
+        pad: 8
     }
 }
 var attrs_desc = {
