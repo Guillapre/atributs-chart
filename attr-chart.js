@@ -3,13 +3,13 @@ attr_vals = urlParams.get("attributes").split(" ")
 skills_vals = urlParams.get("skills").split(" ")
 attr_data = [{
     type: 'scatterpolar',
-    r: attr_vals,
+    r: [...attr_vals,attr_vals[0]],
     theta: ["STR", "DEX", "CON", "INT", "WIS", "CHA", "STR"],
     fill: 'toself'
 }]
 skill_data = [{
     type: 'scatterpolar',
-    r: skills_vals,
+    r: [...skills_vals,skills_vals[0]],
     theta: ["Athletics", "Acrobatics", "Sleight of Hand", "Stealth", "Arcana", "History", "Investigation", "Nature", "Religion", "Animal Handling", "Insight", "Medicine", "Perception", "Survival", "Deception", "Intimidation", "Performance", "Persuasion", "Athletics"],
     fill: 'toself'
 }]
