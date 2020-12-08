@@ -58,8 +58,8 @@ skill_layout = {
     margin: {
         l: 50,
         r: 50,
-        b: 25,
-        t: 25,
+        b: 30,
+        t: 30,
         pad: 5
     }
 }
