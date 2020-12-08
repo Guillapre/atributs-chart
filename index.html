@@ -22,19 +22,17 @@ attr_data = [{
 attr_layout = {
   polar: {
     radialaxis: {
+      tickmode: "array",
+      tickvals: ["0","2","4","6","8","10","12","14","16","18","20","22","24","26","28","30"],
+      ticktext: ["-5","-4","-3","-2","-1","0","+1","+2","+3","+4","+5","+6","+7","+8","+9","+10"],
       visible: true,
-      range: [0, ((Math.max(...urlParams.values()) < 20) ? 20 : Math.max(...urlParams.values()))]
+      range: [-1, ((Math.max(...urlParams.values()) < 20) ? 20 : Math.max(...urlParams.values()))]
     }
   },
   showlegend: false
 }
 
-urlParams.delete("str")
-urlParams.delete("dex")
-urlParams.delete("con")
-urlParams.delete("int")
-urlParams.delete("wis")
-urlParams.delete("cha")
+urlParams.delete("str");urlParams.delete("dex");urlParams.delete("con");urlParams.delete("int");urlParams.delete("wis");urlParams.delete("cha");
 
 skill_data = [{
   type: 'scatterpolar',
@@ -46,7 +44,7 @@ skill_layout = {
   polar: {
     radialaxis: {
       visible: true,
-      range: [-5, ((Math.max(...urlParams.values()) < 10) ? 10 : Math.max(...urlParams.values()))]
+      range: [-6, ((Math.max(...urlParams.values()) < 10) ? 10 : Math.max(...urlParams.values()))]
     }
   },
   showlegend: false
