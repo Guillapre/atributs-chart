@@ -7,32 +7,35 @@
 <style>
 * {
   box-sizing: border-box;
-  font-family:Verdana;
+  font-family: "Comic Sans MS";
+  color: #444444;
 }
 body {
   background-color: #C2C1C1;
-  font-family: Verdana;
-  color: #444444;
+
 }
 .main {
   float:left;
-  width:60%;
+  width:40%;
   padding:0 20px;
 }
 .right {
   float:left;
-  width:40%;
+  width:60%;
   padding:15px;
   margin-top:7px;
   text-align:left;
 }
 .graph {
   width: auto;
-  height: 450px;
+  height: 50%;
 }
 hr {
   height: 1px;
   color: #A0856A;
+}
+h1, h2{
+  color: #1F1F1F;
 }
 @media only screen and (max-width:620px) {
   /* For mobile phones: */
@@ -70,6 +73,7 @@ hr {
       <h2>Charisma</h2>
       <p id="descr-cha"></p>
       <hr>
+      <p style="font-size: smaller; color: #666666;">huge thanks to <a href="https://www.reddit.com/user/theRapkin/">u/theRapkin</a> for the attributes descriptions per modifier, you can find the whole thread <a href="https://www.reddit.com/r/dndnext/comments/81cras/dd_ability_score_ranges_described/">here</a></p>
     </div>
   </div>
 </body>
@@ -96,23 +100,50 @@ attr_layout = {
       tickvals: ["0","2","4","6","8","10","12","14","16","18","20","22","24","26","28","30"],
       ticktext: ["-5","-4","-3","-2","-1","0","+1","+2","+3","+4","+5","+6","+7","+8","+9","+10"],
       visible: true,
-      range: [-1, ((Math.max(...attr_vals) < 20) ? 20 : Math.max(...attr_vals))]
+      range: [-1, ((Math.max(...attr_vals) < 20) ? 20 : Math.max(...attr_vals))],
+    },
+    angularaxis: {
+      tickfont: {
+        color: "#1F1F1F",
+        size: "20",
+        family: "Comic Sans MS"
+      }
     }
   },
   showlegend: false,
   paper_bgcolor: 'rgba(0,0,0,0)',
-  plot_bgcolor: 'rgba(0,0,0,0)'
+  plot_bgcolor: 'rgba(0,0,0,0)',
+  margin: {
+    l: 50,
+    r: 50,
+    b: 25,
+    t: 25,
+    pad: 5
+  }
 }
 skill_layout = {
   polar: {
     radialaxis: {
       visible: true,
       range: [-6, ((Math.max(...skills_vals) < 10) ? 10 : Math.max(...skills_vals))]
+    },
+    angularaxis: {
+      tickfont: {
+        color: "#1F1F1F",
+        family: "Comic Sans MS"
+      }
     }
   },
   showlegend: false,
   paper_bgcolor: 'rgba(0,0,0,0)',
-  plot_bgcolor: 'rgba(0,0,0,0)'
+  plot_bgcolor: 'rgba(0,0,0,0)',
+  margin: {
+    l: 50,
+    r: 50,
+    b: 25,
+    t: 25,
+    pad: 5
+  }
 }
 var attrs_desc = {
     "str": {
