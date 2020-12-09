@@ -144,7 +144,7 @@ var attrs_desc = {
     }
 }
 function get_attr_range(value) {
-    return ((value < 20) ? Math.round(parseInt(value)/2) : 11)
+    return ((value < 20) ? Math.round((parseInt(value)+1)/2) : 11)
 }
 function get_modifier(value) {
     return ((value <= 9) ? Math.round((value-11)/2) : "+" + Math.round((value-11)/2))
@@ -158,16 +158,16 @@ document.getElementById("descr-cha").innerHTML = attrs_desc['cha'][get_attr_rang
 document.getElementById("name").innerHTML = urlParams.get("name")
 document.getElementById("level").innerHTML = urlParams.get("level")
 document.getElementById("str-value").innerHTML = attr_vals[0]
-document.getElementById("str-mod").innerHTML = get_modifier(attr_vals[0])
 document.getElementById("dex-value").innerHTML = attr_vals[1]
-document.getElementById("dex-mod").innerHTML = get_modifier(attr_vals[1])
 document.getElementById("con-value").innerHTML = attr_vals[2]
-document.getElementById("con-mod").innerHTML = get_modifier(attr_vals[2])
 document.getElementById("int-value").innerHTML = attr_vals[3]
-document.getElementById("int-mod").innerHTML = get_modifier(attr_vals[3])
 document.getElementById("wis-value").innerHTML = attr_vals[4]
-document.getElementById("wis-mod").innerHTML = get_modifier(attr_vals[4])
 document.getElementById("cha-value").innerHTML = attr_vals[5]
+document.getElementById("str-mod").innerHTML = get_modifier(attr_vals[0])
+document.getElementById("dex-mod").innerHTML = get_modifier(attr_vals[1])
+document.getElementById("con-mod").innerHTML = get_modifier(attr_vals[2])
+document.getElementById("int-mod").innerHTML = get_modifier(attr_vals[3])
+document.getElementById("wis-mod").innerHTML = get_modifier(attr_vals[4])
 document.getElementById("cha-mod").innerHTML = get_modifier(attr_vals[5])
 Plotly.newPlot("attr-plot", attr_data, attr_layout, { responsive: true })
 Plotly.newPlot("skill-plot", skill_data, skill_layout, { responsive: true })
