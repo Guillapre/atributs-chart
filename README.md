@@ -13,8 +13,11 @@ The purpose of this tool is to provide a clean and easy way to visually and get 
 The webpage is made with bootstrap 5, a simple JavaScript code and Plotly to make the chart. 
 
 If you want you can check those out.
+
 https://www.reddit.com/r/dndnext/comments/81cras/dd_ability_score_ranges_described/
+
 https://plotly.com/javascript/
+
 https://getbootstrap.com/
 
 ## Example
