@@ -18,3 +18,7 @@ example
 ![Aeda's Braarzyer's Macro](https://cdn.discordapp.com/attachments/722006558317215841/786003773046652928/bababui.png)
 ![roll20 in game macro](https://cdn.discordapp.com/attachments/722006558317215841/786004986340704306/msedge_5HiDZlIGdL.png)
 ![you can also SPIN THE GRAPH](https://cdn.discordapp.com/attachments/722006558317215841/786005481411182642/QcJiLBFgPi.gif)
+
+If this project help you, you can give me a cup of coffee :P
+
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/donate?hosted_button_id=H2JKXRTGJUG26)
