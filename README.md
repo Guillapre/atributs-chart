@@ -22,7 +22,7 @@ https://guillapre.github.io/dnd-attr-charts/?name={**Character Name**}&level={**
 ## What we use?
 the webpage is made with bootstrap 5, an simples JavaScript codes and Plottly for make the chart. If you want check it out.
 
-### final considerations 
+### Final considerations 
 If this project help you, you can give me a cup of coffee :P
 
 [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/donate?hosted_button_id=H2JKXRTGJUG26)
