@@ -1,6 +1,6 @@
 const urlParams = new URLSearchParams(window.location.search);
 attr_vals = urlParams.get("attributes").split(" ")
-skills_vals = urlParams.get("skills").split(" ")
+skills_vals = ((urlParams.get("npc") == 1) ? urlParams.get("skills_npc") : urlParams.get("skills_player")).split(" ")
 attr_data = [{
     type: 'scatterpolar',
     r: [...attr_vals,attr_vals[0]],
