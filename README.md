@@ -20,7 +20,7 @@ https://guillapre.github.io/dnd-attr-charts/?name={**Character Name**}&level={**
 ![you can also SPIN THE GRAPH](https://cdn.discordapp.com/attachments/722006558317215841/786005481411182642/QcJiLBFgPi.gif)
 
 ## What we use?
-the webpage is made with bootstrap 5, an simples JavaScript codes and Plottly for make the chart. If you want check it out.
+The webpage is made with bootstrap 5, a simple JavaScript codes and Plotly for make the chart. If you want check it out.
 
 ### Final considerations 
 If this project help you, you can give me a cup of coffee :P
