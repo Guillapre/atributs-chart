@@ -1,17 +1,20 @@
 const urlParams = new URLSearchParams(window.location.search);
 attr_vals = ((urlParams.get("attributes") == null) ? Array(6).fill(10) : urlParams.get("attributes").split(" "))
-skills_vals = ((urlParams.get("npc") == null) ?  Array(18).fill(0) : ((urlParams.get("npc") == 1) ? urlParams.get("skills_npc") : urlParams.get("skills_player")).split(" ")) 
-name = ((urlParams.get("name") == null)? "Character" : urlParams.get("name")) 
-level = ((urlParams.get("level") == null)? "Character" : urlParams.get("level")) 
+skills_vals = ((urlParams.get("npc") == null) ? Array(18).fill(0) : ((urlParams.get("npc") == 1) ? urlParams.get("skills_npc") : urlParams.get("skills_player")).split(" "))
+name = ((urlParams.get("name") == null) ? "Character" : urlParams.get("name"))
+level = ((urlParams.get("level") == null) ? "Character" : urlParams.get("level"))
+function get_attr_range(value) { return ((value < 20) ? Math.round((parseInt(value) + 1) / 2) : 11)}
+function get_modifier(value) { return ((value <= 9) ? Math.round((value - 11) / 2) : "+" + Math.round((value - 11) / 2)) }
+function populate(obj) { for (var [key, value] of Object.entries(obj)) { document.getElementById(key).innerHTML = value }   }
 attr_data = [{
     type: 'scatterpolar',
-    r: [...attr_vals,attr_vals[0]],
+    r: [...attr_vals, attr_vals[0]],
     theta: ["STR", "DEX", "CON", "INT", "WIS", "CHA", "STR"],
     fill: 'toself'
 }]
 skill_data = [{
     type: 'scatterpolar',
-    r: [...skills_vals,skills_vals[0]],
+    r: [...skills_vals, skills_vals[0]],
     theta: ["Athletics", "Acrobatics", "Sleight of Hand", "Stealth", "Arcana", "History", "Investigation", "Nature", "Religion", "Animal Handling", "Insight", "Medicine", "Perception", "Survival", "Deception", "Intimidation", "Performance", "Persuasion", "Athletics"],
     fill: 'toself'
 }]
@@ -145,31 +148,28 @@ var attrs_desc = {
         11: "Renowned for wit, personality, and/or looks. May be a natural born leader."
     }
 }
-function get_attr_range(value) {
-    return ((value < 20) ? Math.round((parseInt(value)+1)/2) : 11)
+const correspondences = {
+    "name": name,
+    "level": level,
+    "descr-str": attrs_desc['str'][get_attr_range(parseInt(attr_vals[0]))],
+    "descr-dex": attrs_desc['dex'][get_attr_range(parseInt(attr_vals[1]))],
+    "descr-con": attrs_desc['con'][get_attr_range(parseInt(attr_vals[2]))],
+    "descr-int": attrs_desc['int'][get_attr_range(parseInt(attr_vals[3]))],
+    "descr-wis": attrs_desc['wis'][get_attr_range(parseInt(attr_vals[4]))],
+    "descr-cha": attrs_desc['cha'][get_attr_range(parseInt(attr_vals[5]))],
+    "str-value": attr_vals[0],
+    "dex-value": attr_vals[1],
+    "con-value": attr_vals[2],
+    "int-value": attr_vals[3],
+    "wis-value": attr_vals[4],
+    "cha-value": attr_vals[5],
+    "str-mod": get_modifier(attr_vals[0]),
+    "dex-mod": get_modifier(attr_vals[1]),
+    "con-mod": get_modifier(attr_vals[2]),
+    "int-mod": get_modifier(attr_vals[3]),
+    "wis-mod": get_modifier(attr_vals[4]),
+    "cha-mod": get_modifier(attr_vals[5])
 }
-function get_modifier(value) {
-    return ((value <= 9) ? Math.round((value-11)/2) : "+" + Math.round((value-11)/2))
-}
-document.getElementById("descr-str").innerHTML = attrs_desc['str'][get_attr_range(parseInt(attr_vals[0]))];
-document.getElementById("descr-dex").innerHTML = attrs_desc['dex'][get_attr_range(parseInt(attr_vals[1]))];
-document.getElementById("descr-con").innerHTML = attrs_desc['con'][get_attr_range(parseInt(attr_vals[2]))];
-document.getElementById("descr-int").innerHTML = attrs_desc['int'][get_attr_range(parseInt(attr_vals[3]))];
-document.getElementById("descr-wis").innerHTML = attrs_desc['wis'][get_attr_range(parseInt(attr_vals[4]))];
-document.getElementById("descr-cha").innerHTML = attrs_desc['cha'][get_attr_range(parseInt(attr_vals[5]))];
-document.getElementById("name").innerHTML = name
-document.getElementById("level").innerHTML = level
-document.getElementById("str-value").innerHTML = attr_vals[0]
-document.getElementById("dex-value").innerHTML = attr_vals[1]
-document.getElementById("con-value").innerHTML = attr_vals[2]
-document.getElementById("int-value").innerHTML = attr_vals[3]
-document.getElementById("wis-value").innerHTML = attr_vals[4]
-document.getElementById("cha-value").innerHTML = attr_vals[5]
-document.getElementById("str-mod").innerHTML = get_modifier(attr_vals[0])
-document.getElementById("dex-mod").innerHTML = get_modifier(attr_vals[1])
-document.getElementById("con-mod").innerHTML = get_modifier(attr_vals[2])
-document.getElementById("int-mod").innerHTML = get_modifier(attr_vals[3])
-document.getElementById("wis-mod").innerHTML = get_modifier(attr_vals[4])
-document.getElementById("cha-mod").innerHTML = get_modifier(attr_vals[5])
+populate(correspondences)
 Plotly.newPlot("attr-plot", attr_data, attr_layout, { responsive: true })
 Plotly.newPlot("skill-plot", skill_data, skill_layout, { responsive: true })
