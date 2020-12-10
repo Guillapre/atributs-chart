@@ -1,6 +1,8 @@
 const urlParams = new URLSearchParams(window.location.search);
-attr_vals = urlParams.get("attributes").split(" ")
-skills_vals = ((urlParams.get("npc") == 1) ? urlParams.get("skills_npc") : urlParams.get("skills_player")).split(" ")
+attr_vals = ((urlParams.get("attributes") == null) ? [10,10,10,10,10,10] : urlParams.get("attributes").split(" "))
+skills_vals = ((urlParams.get("npc") == null) ? [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0] : ((urlParams.get("npc") == 1) ? urlParams.get("skills_npc") : urlParams.get("skills_player")).split(" ")) 
+name = ((urlParams.get("name") == null)? "Character" : urlParams.get("name")) 
+level = ((urlParams.get("level") == null)? "Character" : urlParams.get("level")) 
 attr_data = [{
     type: 'scatterpolar',
     r: [...attr_vals,attr_vals[0]],
@@ -155,8 +157,8 @@ document.getElementById("descr-con").innerHTML = attrs_desc['con'][get_attr_rang
 document.getElementById("descr-int").innerHTML = attrs_desc['int'][get_attr_range(parseInt(attr_vals[3]))];
 document.getElementById("descr-wis").innerHTML = attrs_desc['wis'][get_attr_range(parseInt(attr_vals[4]))];
 document.getElementById("descr-cha").innerHTML = attrs_desc['cha'][get_attr_range(parseInt(attr_vals[5]))];
-document.getElementById("name").innerHTML = urlParams.get("name")
-document.getElementById("level").innerHTML = urlParams.get("level")
+document.getElementById("name").innerHTML = name
+document.getElementById("level").innerHTML = level
 document.getElementById("str-value").innerHTML = attr_vals[0]
 document.getElementById("dex-value").innerHTML = attr_vals[1]
 document.getElementById("con-value").innerHTML = attr_vals[2]
