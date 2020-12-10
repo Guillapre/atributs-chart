@@ -1,6 +1,6 @@
 const urlParams = new URLSearchParams(window.location.search);
-attr_vals = ((urlParams.get("attributes") == null) ? [10,10,10,10,10,10] : urlParams.get("attributes").split(" "))
-skills_vals = ((urlParams.get("npc") == null) ? [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0] : ((urlParams.get("npc") == 1) ? urlParams.get("skills_npc") : urlParams.get("skills_player")).split(" ")) 
+attr_vals = ((urlParams.get("attributes") == null) ? Array(6).fill(10) : urlParams.get("attributes").split(" "))
+skills_vals = ((urlParams.get("npc") == null) ?  Array(18).fill(0) : ((urlParams.get("npc") == 1) ? urlParams.get("skills_npc") : urlParams.get("skills_player")).split(" ")) 
 name = ((urlParams.get("name") == null)? "Character" : urlParams.get("name")) 
 level = ((urlParams.get("level") == null)? "Character" : urlParams.get("level")) 
 attr_data = [{
