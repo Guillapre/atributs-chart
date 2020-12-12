@@ -10,7 +10,7 @@ The purpose of this tool is to provide a clean and easy way to visually and get 
 ```
 
 ## Setting up and using the macro:
-![Installing Macro](https://media.discordapp.net/attachments/779505441985789974/787369953359036456/bWujjtiEBJ.gif)
+![Installing Macro](https://media.discordapp.net/attachments/779505441985789974/787376317406380032/C44jP99Fop.gif?width=1338&height=675)
 
 ## What we use?
 The webpage is made with bootstrap 5, a simple JavaScript code and Plotly to make the chart.
