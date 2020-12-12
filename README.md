@@ -10,7 +10,8 @@ The purpose of this tool is to provide a clean and easy way to visually and get 
 ```
 
 ## What we use?
-The webpage is made with bootstrap 5, a simple JavaScript code and Plotly to make the chart. 
+The webpage is made with bootstrap 5, a simple JavaScript code and Plotly to make the chart.
+We also used the attributes descriptions found on [this reddit thread](https://www.reddit.com/r/dndnext/comments/81cras/dd_ability_score_ranges_described/). 
 
 If you want you can check those out.
 
@@ -27,6 +28,6 @@ https://getbootstrap.com/
 ![you can also SPIN THE GRAPH](https://cdn.discordapp.com/attachments/722006558317215841/786005481411182642/QcJiLBFgPi.gif)
 
 ### Final considerations 
-If this project help you, you can give me a cup of coffee :P
+If this project helps you, you can give me a cup of coffee :P
 
 [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/donate?hosted_button_id=H2JKXRTGJUG26)
